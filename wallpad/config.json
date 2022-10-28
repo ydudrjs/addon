@@ -2,7 +2,7 @@
   "name": "Wallpad Controller with RS485",
   "version": "0.8.7",
   "slug": "wallpad",
-  "description": "코맥스/삼성/대림 월패드가 가능한 nodejs 서버 애드온입니다.",
+  "description": "코맥스/삼성/대림/베스틴 월패드가 가능한 nodejs 서버 애드온입니다.",
   "arch": [
     "armhf",
     "armv7",
@@ -19,37 +19,49 @@
   "uart": true,
   "options": {
     "model":"bestin",
-    "type": "serial",
     "sendDelay": 150,
-    "serial":{
-      "port": "/dev/ttyUSB0",
+    "energy_config":{
+      "type": "socket",
+      "serial_port": "/dev/ttyUSB0",
       "baudrate": 9600,
-      "parity" : "none"
+      "parity" : "none",
+      "socket_ip": "192.168.0.12",
+      "socket_port": 8899
     },
-    "socket" : {
-      "deviceIP": "192.0.0.1",
-      "port": 8899
+    "control_config": {
+      "type": "socket",
+      "serial_port": "/dev/ttyUSB0",
+      "baudrate": 9600,
+      "parity": "none",
+      "socket_ip": "192.168.0.18",
+      "socket_port": 8899
     },
     "mqtt": {
-      "server": "192.168.x.x",
-      "username": "id",
-      "password": "pw",
+      "broker": "192.168.0.28",
+      "username": "harwin",
+      "password": "mosquitto",
       "receiveDelay": 10000
     }
   },
   "schema": {
     "model":"list(commax|samsung|daelim|hyundai|bestin)",
-    "type": "list(serial|socket)",
     "sendDelay": "int",
-    "serial":{
-      "port": "str?",
+    "energy_config":{
+      "type": "list(serial|socket)",
+      "serial_port": "str?",
       "baudrate": "int?",
-      "parity" : "list(none|even|odd)?"
-    },
-    "socket" : {
-      "deviceIP": "str?",
-      "port": "int?"
-    },    
+      "parity" : "list(none|even|odd)?",
+      "socket_ip": "str?",
+      "socket_port": "int?"
+    },  
+    "control_config":{
+      "type": "list(serial|socket)",
+      "serial_port": "str?",
+      "baudrate": "int?",
+      "parity" : "list(none|even|odd)?",
+      "socket_ip": "str?",
+      "socket_port": "int?"
+    },        
     "mqtt": {
       "server": "str",
       "username": "str",
