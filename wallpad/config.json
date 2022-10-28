@@ -63,7 +63,7 @@
       "socket_port": "int?"
     },        
     "mqtt": {
-      "server": "str",
+      "broker": "str",
       "username": "str",
       "password": "str",
       "receiveDelay": "int"
