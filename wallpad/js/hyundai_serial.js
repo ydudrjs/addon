@@ -212,7 +212,7 @@ const CONST = {
     { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 18, stateName: 'current_temperature', state: '22' },
     { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 19, stateName: 'temperature', state: '22' },
     
-    { base_topic: 'switch/homenet/elevator', statePrefixHex: ''}
+    { base_topic: 'switch/homenet/elevator', statePrefixHex: 'f7 0d 01 34 01 41 10 00'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 8, stateName: 'direction', state: '' }
   ],
 
   DEVICE_COMMAND: [
@@ -393,6 +393,9 @@ parser.on('data', buffer => {
     var stateFound = CONST.DEVICE_STATE.filter(obj => obj.checkState(obj, buffer) );
     if (stateFound.length !== 0) {
       stateFound.forEach(function(obj) {
+        if(obj.stateName == 'direction') {
+          obj.state = buffer[8] == 0xa6 ? 'moving up' : 'moving down'
+        }
         //log('[Serial] State Found:', obj.base_topic, obj.stateName, obj.state);
         updateStatus(obj);
       });
