@@ -1,3 +1,4 @@
+
 /**
  * Y-City Home Controller
  * @author Daehwan, Kang
@@ -84,7 +85,8 @@ const CONST = {
     'climate/homenet/heater1-3': { name: '큰방난방', unique_id: 'climate-homenet-heater1-3', modes: ['off','heat'], action_topic: '~/action/state', away_mode_state_topic: '~/away_mode/state', current_temperature_topic: '~/current_temperature/state', mode_state_topic: '~/mode/state', temperature_state_topic: '~/temperature/state', precision: 1.0 },
     'climate/homenet/heater1-4': { name: '옷방난방', unique_id: 'climate-homenet-heater1-4', modes: ['off','heat'], action_topic: '~/action/state', away_mode_state_topic: '~/away_mode/state', current_temperature_topic: '~/current_temperature/state', mode_state_topic: '~/mode/state', temperature_state_topic: '~/temperature/state', precision: 1.0 },
 
-    'binary_sensor/homenet/wallpad': { name: '월패드', unique_id: 'binary_sensor-homenet-wallpad', device_class: 'connectivity', state_topic: '~/connectivity/state' }
+    'binary_sensor/homenet/wallpad': { name: '월패드', unique_id: 'binary_sensor-homenet-wallpad', device_class: 'connectivity', state_topic: '~/connectivity/state' },
+    'switch/homenet/elevator' : { name: 엘리베이터, unique_id: 'switch-elevator-1', state_topic: '~/power/state', command_topic: '~/power/command' },
   },
 
   // 기기별 상태 및 제어 코드(HEX)
@@ -209,6 +211,8 @@ const CONST = {
     { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndAction, stateIndex: 17, stateName: 'action', state: 'idle' },
     { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 18, stateName: 'current_temperature', state: '22' },
     { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 19, stateName: 'temperature', state: '22' },
+    
+    { base_topic: 'switch/homenet/elevator', statePrefixHex: ''}
   ],
 
   DEVICE_COMMAND: [
