@@ -1,4 +1,3 @@
-
 /**
  * Y-City Home Controller
  * @author Daehwan, Kang
@@ -62,31 +61,36 @@ const CONST = {
   // https://www.home-assistant.io/docs/mqtt/discovery/
   // http://mqtt-explorer.com
   DEVICE_CONFIG: {
-    'light/homenet/panel1-1': { name: '거실전등1', unique_id: 'light-homenet-panel1-1', state_topic: '~/power/state', command_topic: '~/power/command' },
-    'light/homenet/panel1-2': { name: '거실전등2', unique_id: 'light-homenet-panel1-2', state_topic: '~/power/state', command_topic: '~/power/command' },
-    'light/homenet/panel1-3': { name:  '아트월등', unique_id: 'light-homenet-panel1-3', state_topic: '~/power/state', command_topic: '~/power/command' },
-    'light/homenet/panel1-4': { name:  '복도전등', unique_id: 'light-homenet-panel1-4', state_topic: '~/power/state', command_topic: '~/power/command' },
-    'light/homenet/panel1-5': { name:    '비상등', unique_id: 'light-homenet-panel1-5', state_topic: '~/power/state', command_topic: '~/power/command' },
-    'light/homenet/panel2-1': { name: '침실전등1', unique_id: 'light-homenet-panel2-1', state_topic: '~/power/state', command_topic: '~/power/command' },
-    'light/homenet/panel2-2': { name: '침실전등2', unique_id: 'light-homenet-panel2-2', state_topic: '~/power/state', command_topic: '~/power/command' },
-    'light/homenet/panel3-1': { name: '옷방전등1', unique_id: 'light-homenet-panel3-1', state_topic: '~/power/state', command_topic: '~/power/command' },
-    'light/homenet/panel3-2': { name: '옷방전등2', unique_id: 'light-homenet-panel3-2', state_topic: '~/power/state', command_topic: '~/power/command' },
-    'light/homenet/panel4-1': { name: '큰방전등1', unique_id: 'light-homenet-panel4-1', state_topic: '~/power/state', command_topic: '~/power/command' },
-    'light/homenet/panel4-2': { name: '큰방전등2', unique_id: 'light-homenet-panel4-2', state_topic: '~/power/state', command_topic: '~/power/command' },
+    'light/homenet/panel1-1': { name: 'livingroom_light1', unique_id: 'light-homenet-panel1-1', state_topic: '~/power/state', command_topic: '~/power/command' },
+    'light/homenet/panel1-2': { name: 'livingroom_light2', unique_id: 'light-homenet-panel1-2', state_topic: '~/power/state', command_topic: '~/power/command' },
+    'light/homenet/panel1-3': { name: 'livingroom_light3', unique_id: 'light-homenet-panel1-3', state_topic: '~/power/state', command_topic: '~/power/command' },
+    'light/homenet/panel2-1': { name: 'room1_light1', unique_id: 'light-homenet-panel2-1', state_topic: '~/power/state', command_topic: '~/power/command' },
+    'light/homenet/panel2-2': { name: 'room1_light2', unique_id: 'light-homenet-panel2-2', state_topic: '~/power/state', command_topic: '~/power/command' },
+    'light/homenet/panel3-1': { name: 'room2_light1', unique_id: 'light-homenet-panel3-1', state_topic: '~/power/state', command_topic: '~/power/command' },
+    'light/homenet/panel3-2': { name: 'room2_light2', unique_id: 'light-homenet-panel3-2', state_topic: '~/power/state', command_topic: '~/power/command' },
+    'light/homenet/panel4-1': { name: 'room3_light1', unique_id: 'light-homenet-panel4-1', state_topic: '~/power/state', command_topic: '~/power/command' },
+    'light/homenet/panel4-2': { name: 'room3_light2', unique_id: 'light-homenet-panel4-2', state_topic: '~/power/state', command_topic: '~/power/command' },
+    'light/homenet/panel5-1': { name: 'kichen_light1', unique_id: 'light-homenet-panel5-1', state_topic: '~/power/state', command_topic: '~/power/command' },
+    'light/homenet/panel5-2': { name: 'kichen_light2', unique_id: 'light-homenet-panel5-2', state_topic: '~/power/state', command_topic: '~/power/command' },
+    'light/homenet/panel5-3': { name: 'kichen_light3', unique_id: 'light-homenet-panel5-3', state_topic: '~/power/state', command_topic: '~/power/command' },
+    
     
     'fan/homenet/panel1': { name: '환풍기', unique_id: 'fan-homenet-panel1', state_topic: '~/power/state', command_topic: '~/power/command', speed_state_topic: '~/speed/state', speed_command_topic: '~/speed/command', speeds:['low', 'medium', 'high'] },
-
+    
+    'switch/homenet/elevator': { name: 'elevator', unique_id: 'switch-homenet-elevator', state_topic: '~/power/state', command_topic: '~/power/command' },
+    'sensor/homenet/elevator-state': { name: 'elevator-state', unique_id: 'sensor-homenet-elevator-state', state_topic: '~/power/state', command_topic: '~/power/command' },
+    
     'switch/homenet/breaker1': { name: '주방가스차단', unique_id: 'switch-homenet-breaker1', state_topic: '~/gas/state', command_topic: '~/gas/command' },
     'switch/homenet/breaker2-1': { name: '외출-조명', unique_id: 'switch-homenet-breaker2-1', state_topic: '~/light/state', command_topic: '~/light/command' },
     'switch/homenet/breaker2-2': { name: '외출-가스', unique_id: 'switch-homenet-breaker2-2', state_topic: '~/gas/state', command_topic: '~/gas/command' },
 
-    'climate/homenet/heater1-1': { name: '거실난방', unique_id: 'climate-homenet-heater1-1', modes: ['off','heat'], action_topic: '~/action/state', away_mode_state_topic: '~/away_mode/state', current_temperature_topic: '~/current_temperature/state', mode_state_topic: '~/mode/state', temperature_state_topic: '~/temperature/state', precision: 1.0 },
-    'climate/homenet/heater1-2': { name: '침실난방', unique_id: 'climate-homenet-heater1-2', modes: ['off','heat'], action_topic: '~/action/state', away_mode_state_topic: '~/away_mode/state', current_temperature_topic: '~/current_temperature/state', mode_state_topic: '~/mode/state', temperature_state_topic: '~/temperature/state', precision: 1.0 },
-    'climate/homenet/heater1-3': { name: '큰방난방', unique_id: 'climate-homenet-heater1-3', modes: ['off','heat'], action_topic: '~/action/state', away_mode_state_topic: '~/away_mode/state', current_temperature_topic: '~/current_temperature/state', mode_state_topic: '~/mode/state', temperature_state_topic: '~/temperature/state', precision: 1.0 },
-    'climate/homenet/heater1-4': { name: '옷방난방', unique_id: 'climate-homenet-heater1-4', modes: ['off','heat'], action_topic: '~/action/state', away_mode_state_topic: '~/away_mode/state', current_temperature_topic: '~/current_temperature/state', mode_state_topic: '~/mode/state', temperature_state_topic: '~/temperature/state', precision: 1.0 },
+    'climate/homenet/heater1-1': { name: 'livingroom', unique_id: 'climate-homenet-heater1-1', modes: ['off','heat_cool','heat'], action_topic: '~/action/state', current_temperature_topic: '~/current_temperature/state', mode_state_topic: '~/mode/state', mode_command_topic: '~/mode/command', temperature_state_topic: '~/temperature/state', temperature_command_topic: '~/temperature/command', precision: 1.0 },
+    'climate/homenet/heater1-2': { name: 'bedroom', unique_id: 'climate-homenet-heater1-2', modes: ['off','heat_cool','heat'], action_topic: '~/action/state', current_temperature_topic: '~/current_temperature/state', mode_state_topic: '~/mode/state', mode_command_topic: '~/mode/command', temperature_state_topic: '~/temperature/state', temperature_command_topic: '~/temperature/command', precision: 1.0 },
+    'climate/homenet/heater1-3': { name: 'roomA', unique_id: 'climate-homenet-heater1-3', modes: ['off','heat_cool','heat'], action_topic: '~/action/state', current_temperature_topic: '~/current_temperature/state', mode_state_topic: '~/mode/state', mode_command_topic: '~/mode/command', temperature_state_topic: '~/temperature/state', temperature_command_topic: '~/temperature/command', precision: 1.0 },
+    'climate/homenet/heater1-4': { name: 'roomB', unique_id: 'climate-homenet-heater1-4', modes: ['off','heat_cool','heat'], action_topic: '~/action/state', current_temperature_topic: '~/current_temperature/state', mode_state_topic: '~/mode/state', mode_command_topic: '~/mode/command', temperature_state_topic: '~/temperature/state', temperature_command_topic: '~/temperature/command', precision: 1.0 },
 
-    'binary_sensor/homenet/wallpad': { name: '월패드', unique_id: 'binary_sensor-homenet-wallpad', device_class: 'connectivity', state_topic: '~/connectivity/state' },
-    'switch/homenet/elevator' : { name: 엘리베이터, unique_id: 'switch-elevator-1', state_topic: '~/power/state', command_topic: '~/power/command' },
+
+    'binary_sensor/homenet/wallpad': { name: '월패드', unique_id: 'binary_sensor-homenet-wallpad', device_class: 'connectivity', state_topic: '~/connectivity/state' }
   },
 
   // 기기별 상태 및 제어 코드(HEX)
@@ -117,16 +121,12 @@ const CONST = {
   //          난방       ON: 01 | 외출: 04 || 현재온도 || 희망온도
   DEVICE_STATE: [
     // light panel1: f7 0f 01 19 04 40 10   00 02 02 02 02 02
-    { base_topic: 'light/homenet/panel1-1', statePrefixHex: 'f7 0f 01 19 04 40 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  8, stateCode: 0x02, stateName: 'power', state: 'OFF' },
-    { base_topic: 'light/homenet/panel1-1', statePrefixHex: 'f7 0f 01 19 04 40 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  8, stateCode: 0x01, stateName: 'power', state:  'ON' },
-    { base_topic: 'light/homenet/panel1-2', statePrefixHex: 'f7 0f 01 19 04 40 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  9, stateCode: 0x02, stateName: 'power', state: 'OFF' },
-    { base_topic: 'light/homenet/panel1-2', statePrefixHex: 'f7 0f 01 19 04 40 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  9, stateCode: 0x01, stateName: 'power', state:  'ON' },
-    { base_topic: 'light/homenet/panel1-3', statePrefixHex: 'f7 0f 01 19 04 40 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 10, stateCode: 0x02, stateName: 'power', state: 'OFF' },
-    { base_topic: 'light/homenet/panel1-3', statePrefixHex: 'f7 0f 01 19 04 40 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 10, stateCode: 0x01, stateName: 'power', state:  'ON' },
-    { base_topic: 'light/homenet/panel1-4', statePrefixHex: 'f7 0f 01 19 04 40 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 11, stateCode: 0x02, stateName: 'power', state: 'OFF' },
-    { base_topic: 'light/homenet/panel1-4', statePrefixHex: 'f7 0f 01 19 04 40 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 11, stateCode: 0x01, stateName: 'power', state:  'ON' },
-    { base_topic: 'light/homenet/panel1-5', statePrefixHex: 'f7 0f 01 19 04 40 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 12, stateCode: 0x02, stateName: 'power', state: 'OFF' },
-    { base_topic: 'light/homenet/panel1-5', statePrefixHex: 'f7 0f 01 19 04 40 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 12, stateCode: 0x01, stateName: 'power', state:  'ON' },
+    { base_topic: 'light/homenet/panel1-1', statePrefixHex: 'f7 0b 01 19 04 40 11'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  8, stateCode: 0x02, stateName: 'power', state: 'OFF' },
+    { base_topic: 'light/homenet/panel1-1', statePrefixHex: 'f7 0b 01 19 04 40 11'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  8, stateCode: 0x01, stateName: 'power', state:  'ON' },
+    { base_topic: 'light/homenet/panel1-2', statePrefixHex: 'f7 0b 01 19 04 40 12'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  8, stateCode: 0x02, stateName: 'power', state: 'OFF' },
+    { base_topic: 'light/homenet/panel1-2', statePrefixHex: 'f7 0b 01 19 04 40 12'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  8, stateCode: 0x01, stateName: 'power', state:  'ON' },
+    { base_topic: 'light/homenet/panel1-3', statePrefixHex: 'f7 0b 01 19 04 40 13'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  8, stateCode: 0x02, stateName: 'power', state: 'OFF' },
+    { base_topic: 'light/homenet/panel1-3', statePrefixHex: 'f7 0b 01 19 04 40 13'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  8, stateCode: 0x01, stateName: 'power', state:  'ON' },
 
     // light panel2: f7 0c 01 19 04 40 20   00 02 02
     { base_topic: 'light/homenet/panel2-1', statePrefixHex: 'f7 0c 01 19 04 40 20'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  8, stateCode: 0x02, stateName: 'power', state: 'OFF' },
@@ -140,11 +140,20 @@ const CONST = {
     { base_topic: 'light/homenet/panel3-2', statePrefixHex: 'f7 0c 01 19 04 40 30'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  9, stateCode: 0x02, stateName: 'power', state: 'OFF' },
     { base_topic: 'light/homenet/panel3-2', statePrefixHex: 'f7 0c 01 19 04 40 30'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  9, stateCode: 0x01, stateName: 'power', state:  'ON' },
     
-    // light panel3: f7 0c 01 19 04 40 40   00 02 02
+    // light panel4: f7 0c 01 19 04 40 40   00 02 02
     { base_topic: 'light/homenet/panel4-1', statePrefixHex: 'f7 0c 01 19 04 40 40'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  8, stateCode: 0x02, stateName: 'power', state: 'OFF' },
     { base_topic: 'light/homenet/panel4-1', statePrefixHex: 'f7 0c 01 19 04 40 40'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  8, stateCode: 0x01, stateName: 'power', state:  'ON' },
     { base_topic: 'light/homenet/panel4-2', statePrefixHex: 'f7 0c 01 19 04 40 40'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  9, stateCode: 0x02, stateName: 'power', state: 'OFF' },
     { base_topic: 'light/homenet/panel4-2', statePrefixHex: 'f7 0c 01 19 04 40 40'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  9, stateCode: 0x01, stateName: 'power', state:  'ON' },
+    
+    // light panel5: f7 0c 01 19 04 40 50   00 02 02        
+    { base_topic: 'light/homenet/panel5-1', statePrefixHex: 'f7 0b 01 19 04 40 51'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x02, stateName: 'power', state: 'OFF' },
+    { base_topic: 'light/homenet/panel5-1', statePrefixHex: 'f7 0b 01 19 04 40 51'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x01, stateName: 'power', state: 'ON' },
+    { base_topic: 'light/homenet/panel5-2', statePrefixHex: 'f7 0b 01 19 04 40 52'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x02, stateName: 'power', state: 'OFF' },
+    { base_topic: 'light/homenet/panel5-2', statePrefixHex: 'f7 0b 01 19 04 40 52'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x01, stateName: 'power', state: 'ON' },
+    { base_topic: 'light/homenet/panel5-3', statePrefixHex: 'f7 0b 01 19 04 40 53'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x02, stateName: 'power', state: 'OFF' },
+    { base_topic: 'light/homenet/panel5-3', statePrefixHex: 'f7 0b 01 19 04 40 53'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x01, stateName: 'power', state: 'ON' },
+
 
     // fan panel1: f7 0c 01 2b 04 40 10   00 02 01
     { base_topic: 'fan/homenet/panel1', statePrefixHex: 'f7 0c 01 2b 04 40 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x02, stateName: 'power', state: 'OFF' },
@@ -152,6 +161,17 @@ const CONST = {
     { base_topic: 'fan/homenet/panel1', statePrefixHex: 'f7 0c 01 2b 04 40 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 9, stateCode: 0x07, stateName: 'speed', state:   'high' },
     { base_topic: 'fan/homenet/panel1', statePrefixHex: 'f7 0c 01 2b 04 40 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 9, stateCode: 0x03, stateName: 'speed', state: 'medium' },
     { base_topic: 'fan/homenet/panel1', statePrefixHex: 'f7 0c 01 2b 04 40 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 9, stateCode: 0x01, stateName: 'speed', state:    'low' },
+
+
+
+    // elevator 
+    { base_topic: 'switch/homenet/elevator', statePrefixHex: 'f7 0b 01 34 04 41 10 00 06 9a'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 9, stateCode: 0x9a, stateName: 'power', state:  'ON' },
+    { base_topic: 'switch/homenet/elevator', statePrefixHex: 'f7 0b 01 34 04 41 10 00 00 9c'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 9, stateCode: 0x9c, stateName: 'power', state:  'OFF' },    
+    { base_topic: 'sensor/homenet/elevator-state', statePrefixHex: 'f7 0d 01 34 01 41 10 00 a6 01'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 9, stateCode: '', stateName: 'power', state:  '' },
+
+    { base_topic: 'switch/homenet/breaker1', statePrefixHex: 'f7 0d 01 1b 04 43 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x04, stateName: 'gas', state:  'OFF' },
+    { base_topic: 'switch/homenet/breaker1', statePrefixHex: 'f7 0d 01 1b 04 43 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x03, stateName: 'gas', state: 'ON' },
+    
 
     // breaker1(gas): f7 0d 01 1b 04 43 10   00 04 00 00 b3
     { base_topic: 'switch/homenet/breaker1', statePrefixHex: 'f7 0d 01 1b 04 43 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x04, stateName: 'gas', state:  'OFF' },
@@ -172,60 +192,69 @@ const CONST = {
 
     // heater1: f7 22 01 18 04 46 10   00 01 1a 14 01 1a 12 01 1b 0c 01 1b 0c 00000000000000000000000098
     //   room1 mode: away
-    { base_topic: 'climate/homenet/heater1-1', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  8, stateCode: 0x04, stateName: 'mode', state: 'heat' },
-    { base_topic: 'climate/homenet/heater1-1', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  8, stateCode: 0x04, stateName: 'away_mode', state: 'ON' },
+    { base_topic: 'climate/homenet/heater1-1', statePrefixHex: 'f7 0d 01 18 04 46 11'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x04, stateName: 'mode', state: 'off' },
+    { base_topic: 'climate/homenet/heater1-1', statePrefixHex: 'f7 0d 01 18 04 46 11'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x04, stateName: 'away_mode', state: 'ON' },
+    { base_topic: 'climate/homenet/heater1-1', statePrefixHex: 'f7 0d 01 18 04 46 11'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x07, stateName: 'mode', state: 'heat_cool' },
+    { base_topic: 'climate/homenet/heater1-1', statePrefixHex: 'f7 0d 01 18 04 46 11'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x07, stateName: 'away_mode', state: 'ON' },
     //   room1 mode: home
-    { base_topic: 'climate/homenet/heater1-1', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  8, stateCode: 0x01, stateName: 'mode', state: 'heat' },
-    { base_topic: 'climate/homenet/heater1-1', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex:  8, stateCode: 0x01, stateName: 'away_mode', state: 'OFF' },
+    { base_topic: 'climate/homenet/heater1-1', statePrefixHex: 'f7 0d 01 18 04 46 11'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x01, stateName: 'mode', state: 'heat' },
+    { base_topic: 'climate/homenet/heater1-1', statePrefixHex: 'f7 0d 01 18 04 46 11'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x01, stateName: 'away_mode', state: 'OFF' },
     //   room1 temperature
-    { base_topic: 'climate/homenet/heater1-1', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndAction, stateIndex:  8, stateName: 'action', state: 'idle' },
-    { base_topic: 'climate/homenet/heater1-1', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndUpdate, stateIndex:  9, stateName: 'current_temperature', state: '22' },
-    { base_topic: 'climate/homenet/heater1-1', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 10, stateName: 'temperature', state: '22' },
+    { base_topic: 'climate/homenet/heater1-1', statePrefixHex: 'f7 0d 01 18 04 46 11'.toBuffer(), checkState: checkStateAndAction, stateIndex: 8, stateName: 'action', state: 'idle' },
+    { base_topic: 'climate/homenet/heater1-1', statePrefixHex: 'f7 0d 01 18 04 46 11'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 9, stateName: 'current_temperature', state: '22' },
+    { base_topic: 'climate/homenet/heater1-1', statePrefixHex: 'f7 0d 01 18 04 46 11'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 10, stateName: 'temperature', state: '22' },
     //   room2 mode: away
-    { base_topic: 'climate/homenet/heater1-2', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 11, stateCode: 0x04, stateName: 'mode', state: 'heat' },
-    { base_topic: 'climate/homenet/heater1-2', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 11, stateCode: 0x04, stateName: 'away_mode', state: 'ON' },
+    { base_topic: 'climate/homenet/heater1-2', statePrefixHex: 'f7 0d 01 18 04 46 12'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x04, stateName: 'mode', state: 'off' },
+    { base_topic: 'climate/homenet/heater1-2', statePrefixHex: 'f7 0d 01 18 04 46 12'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x04, stateName: 'away_mode', state: 'ON' },
+    { base_topic: 'climate/homenet/heater1-2', statePrefixHex: 'f7 0d 01 18 04 46 12'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x07, stateName: 'mode', state: 'heat_cool' },
+    { base_topic: 'climate/homenet/heater1-2', statePrefixHex: 'f7 0d 01 18 04 46 12'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x07, stateName: 'away_mode', state: 'ON' },
     //   room2 mode: home
-    { base_topic: 'climate/homenet/heater1-2', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 11, stateCode: 0x01, stateName: 'mode', state: 'heat' },
-    { base_topic: 'climate/homenet/heater1-2', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 11, stateCode: 0x01, stateName: 'away_mode', state: 'OFF' },
+    { base_topic: 'climate/homenet/heater1-2', statePrefixHex: 'f7 0d 01 18 04 46 12'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x01, stateName: 'mode', state: 'heat' },
+    { base_topic: 'climate/homenet/heater1-2', statePrefixHex: 'f7 0d 01 18 04 46 12'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x01, stateName: 'away_mode', state: 'OFF' },
     //   room2 temperature
-    { base_topic: 'climate/homenet/heater1-2', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndAction, stateIndex: 11, stateName: 'action', state: 'idle' },
-    { base_topic: 'climate/homenet/heater1-2', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 12, stateName: 'current_temperature', state: '22' },
-    { base_topic: 'climate/homenet/heater1-2', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 13, stateName: 'temperature', state: '22' },
+    { base_topic: 'climate/homenet/heater1-2', statePrefixHex: 'f7 0d 01 18 04 46 12'.toBuffer(), checkState: checkStateAndAction, stateIndex: 8, stateName: 'action', state: 'idle' },
+    { base_topic: 'climate/homenet/heater1-2', statePrefixHex: 'f7 0d 01 18 04 46 12'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 9, stateName: 'current_temperature', state: '22' },
+    { base_topic: 'climate/homenet/heater1-2', statePrefixHex: 'f7 0d 01 18 04 46 12'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 10, stateName: 'temperature', state: '22' },
     //   room3 mode: away
-    { base_topic: 'climate/homenet/heater1-3', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 14, stateCode: 0x04, stateName: 'mode', state: 'heat' },
-    { base_topic: 'climate/homenet/heater1-3', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 14, stateCode: 0x04, stateName: 'away_mode', state: 'ON' },
+    { base_topic: 'climate/homenet/heater1-3', statePrefixHex: 'f7 0d 01 18 04 46 13'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x04, stateName: 'mode', state: 'off' },
+    { base_topic: 'climate/homenet/heater1-3', statePrefixHex: 'f7 0d 01 18 04 46 13'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x04, stateName: 'away_mode', state: 'ON' },
+    { base_topic: 'climate/homenet/heater1-3', statePrefixHex: 'f7 0d 01 18 04 46 13'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x07, stateName: 'mode', state: 'heat_cool' },
+    { base_topic: 'climate/homenet/heater1-3', statePrefixHex: 'f7 0d 01 18 04 46 13'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x07, stateName: 'away_mode', state: 'ON' },
     //   room3 mode: home
-    { base_topic: 'climate/homenet/heater1-3', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 14, stateCode: 0x01, stateName: 'mode', state: 'heat' },
-    { base_topic: 'climate/homenet/heater1-3', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 14, stateCode: 0x01, stateName: 'away_mode', state: 'OFF' },
+    { base_topic: 'climate/homenet/heater1-3', statePrefixHex: 'f7 0d 01 18 04 46 13'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x01, stateName: 'mode', state: 'heat' },
+    { base_topic: 'climate/homenet/heater1-3', statePrefixHex: 'f7 0d 01 18 04 46 13'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x01, stateName: 'away_mode', state: 'OFF' },
     //   room3 temperature
-    { base_topic: 'climate/homenet/heater1-3', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndAction, stateIndex: 14, stateName: 'action', state: 'idle' },
-    { base_topic: 'climate/homenet/heater1-3', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 15, stateName: 'current_temperature', state: '22' },
-    { base_topic: 'climate/homenet/heater1-3', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 16, stateName: 'temperature', state: '22' },
+    { base_topic: 'climate/homenet/heater1-3', statePrefixHex: 'f7 0d 01 18 04 46 13'.toBuffer(), checkState: checkStateAndAction, stateIndex: 8, stateName: 'action', state: 'idle' },
+    { base_topic: 'climate/homenet/heater1-3', statePrefixHex: 'f7 0d 01 18 04 46 13'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 9, stateName: 'current_temperature', state: '22' },
+    { base_topic: 'climate/homenet/heater1-3', statePrefixHex: 'f7 0d 01 18 04 46 13'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 10, stateName: 'temperature', state: '22' },
     //   room4 mode: away
-    { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 17, stateCode: 0x04, stateName: 'mode', state: 'heat' },
-    { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 17, stateCode: 0x04, stateName: 'away_mode', state: 'ON' },
+    { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 0d 01 18 04 46 14'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x04, stateName: 'mode', state: 'off' },
+    { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 0d 01 18 04 46 14'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x04, stateName: 'away_mode', state: 'ON' },
+    { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 0d 01 18 04 46 14'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x07, stateName: 'mode', state: 'heat_cool' },
+    { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 0d 01 18 04 46 14'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x07, stateName: 'away_mode', state: 'ON' },
     //   room4 mode: home
-    { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 17, stateCode: 0x01, stateName: 'mode', state: 'heat' },
-    { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 17, stateCode: 0x01, stateName: 'away_mode', state: 'OFF' },
+    { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 0d 01 18 04 46 14'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x01, stateName: 'mode', state: 'heat' },
+    { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 0d 01 18 04 46 14'.toBuffer(), checkState: checkStateSingleValue, stateIndex: 8, stateCode: 0x01, stateName: 'away_mode', state: 'OFF' },
     //   room4 temperature
-    { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndAction, stateIndex: 17, stateName: 'action', state: 'idle' },
-    { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 18, stateName: 'current_temperature', state: '22' },
-    { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 22 01 18 04 46 10'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 19, stateName: 'temperature', state: '22' },
+    { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 0d 01 18 04 46 14'.toBuffer(), checkState: checkStateAndAction, stateIndex: 8, stateName: 'action', state: 'idle' },
+    { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 0d 01 18 04 46 14'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 9, stateName: 'current_temperature', state: '22' },
+    { base_topic: 'climate/homenet/heater1-4', statePrefixHex: 'f7 0d 01 18 04 46 14'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 10, stateName: 'temperature', state: '22' },
     
-    { base_topic: 'switch/homenet/elevator', statePrefixHex: 'f7 0d 01 34 01 41 10 00'.toBuffer(), checkState: checkStateAndUpdate, stateIndex: 8, stateName: 'direction', state: '' }
+    
+    
+    
   ],
 
   DEVICE_COMMAND: [
+    { base_topic: 'switch/homenet/elevator', commandHex: 'f7 0b 01 34 02 41 10 06 00 9c ee'.toBuffer(), ackHex: 'f7 0b 01 34 04 41 10 06 06 9c'.toBuffer(), stateName: 'power', state:  'ON' },
+    //{ base_topic: 'switch/homenet/elevator', commandHex: 'f7 0b 01 34 04 41 10 00 00 9c ee'.toBuffer(), ackHex: 'f7 0b 01 34 04 41 10 00 00 9c'.toBuffer(), stateName: 'power', state:  'OFF' },
+    
     { base_topic: 'light/homenet/panel1-1', commandHex: 'f7 0b 01 19 02 40 11 02 00 b5 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 11 02 02 b1'.toBuffer(), stateName: 'power', state: 'OFF' },
     { base_topic: 'light/homenet/panel1-1', commandHex: 'f7 0b 01 19 02 40 11 01 00 b6 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 11 01 01 b1'.toBuffer(), stateName: 'power', state:  'ON' },
     { base_topic: 'light/homenet/panel1-2', commandHex: 'f7 0b 01 19 02 40 12 02 00 b6 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 12 02 02 b2'.toBuffer(), stateName: 'power', state: 'OFF' },
     { base_topic: 'light/homenet/panel1-2', commandHex: 'f7 0b 01 19 02 40 12 01 00 b5 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 12 01 01 b2'.toBuffer(), stateName: 'power', state:  'ON' },
     { base_topic: 'light/homenet/panel1-3', commandHex: 'f7 0b 01 19 02 40 13 02 00 b7 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 13 02 02 b3'.toBuffer(), stateName: 'power', state: 'OFF' },
     { base_topic: 'light/homenet/panel1-3', commandHex: 'f7 0b 01 19 02 40 13 01 00 b4 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 13 01 01 b3'.toBuffer(), stateName: 'power', state:  'ON' },
-    { base_topic: 'light/homenet/panel1-4', commandHex: 'f7 0b 01 19 02 40 14 02 00 b0 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 14 02 02 b4'.toBuffer(), stateName: 'power', state: 'OFF' },
-    { base_topic: 'light/homenet/panel1-4', commandHex: 'f7 0b 01 19 02 40 14 01 00 b3 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 14 01 01 b4'.toBuffer(), stateName: 'power', state:  'ON' },
-    { base_topic: 'light/homenet/panel1-5', commandHex: 'f7 0b 01 19 02 40 15 02 00 b1 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 15 02 02 b5'.toBuffer(), stateName: 'power', state: 'OFF' },
-    { base_topic: 'light/homenet/panel1-5', commandHex: 'f7 0b 01 19 02 40 15 01 00 b2 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 15 01 01 b5'.toBuffer(), stateName: 'power', state:  'ON' },
     
     { base_topic: 'light/homenet/panel2-1', commandHex: 'f7 0b 01 19 02 40 21 02 00 85 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 21 02 02 81'.toBuffer(), stateName: 'power', state: 'OFF' },
     { base_topic: 'light/homenet/panel2-1', commandHex: 'f7 0b 01 19 02 40 21 01 00 86 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 21 01 01 81'.toBuffer(), stateName: 'power', state:  'ON' },
@@ -241,17 +270,45 @@ const CONST = {
     { base_topic: 'light/homenet/panel4-1', commandHex: 'f7 0b 01 19 02 40 41 01 00 e6 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 41 01 01 e1'.toBuffer(), stateName: 'power', state:  'ON' },
     { base_topic: 'light/homenet/panel4-2', commandHex: 'f7 0b 01 19 02 40 42 02 00 e6 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 42 02 02 e2'.toBuffer(), stateName: 'power', state: 'OFF' },
     { base_topic: 'light/homenet/panel4-2', commandHex: 'f7 0b 01 19 02 40 42 01 00 e5 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 42 01 01 e2'.toBuffer(), stateName: 'power', state:  'ON' },
+    
+    { base_topic: 'light/homenet/panel5-1', commandHex: 'f7 0b 01 19 02 40 51 02 00 f5 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 51 02 02 f1'.toBuffer(), stateName: 'power', state: 'OFF' },
+    { base_topic: 'light/homenet/panel5-1', commandHex: 'f7 0b 01 19 02 40 51 01 00 f6 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 51 01 01 f1'.toBuffer(), stateName: 'power', state: 'ON' },
+    { base_topic: 'light/homenet/panel5-2', commandHex: 'f7 0b 01 19 02 40 52 02 00 f6 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 52 02 02 f2'.toBuffer(), stateName: 'power', state: 'OFF' },
+    { base_topic: 'light/homenet/panel5-2', commandHex: 'f7 0b 01 19 02 40 52 01 00 f5 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 52 01 01 f2'.toBuffer(), stateName: 'power', state: 'ON' },
+    { base_topic: 'light/homenet/panel5-3', commandHex: 'f7 0b 01 19 02 40 53 02 00 f7 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 53 02 02 f3'.toBuffer(), stateName: 'power', state: 'OFF' },
+    { base_topic: 'light/homenet/panel5-3', commandHex: 'f7 0b 01 19 02 40 53 01 00 f4 ee'.toBuffer(), ackHex: 'f7 0b 01 19 04 40 53 01 01 f3'.toBuffer(), stateName: 'power', state: 'ON' },
 
-    { base_topic: 'fan/homenet/panel1', commandHex: 'f7 0b 01 2b 02 40 11 02 00 87 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 11 02 02 01 85'.toBuffer(), stateName: 'power', state: 'OFF' },
-    { base_topic: 'fan/homenet/panel1', commandHex: 'f7 0b 01 2b 02 40 11 02 00 87 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 11 02 02 03 87'.toBuffer(), stateName: 'power', state: 'OFF' },
-    { base_topic: 'fan/homenet/panel1', commandHex: 'f7 0b 01 2b 02 40 11 02 00 87 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 11 02 02 07 83'.toBuffer(), stateName: 'power', state: 'OFF' },
-    { base_topic: 'fan/homenet/panel1', commandHex: 'f7 0b 01 2b 02 40 11 01 00 84 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 11 01 01 01 85'.toBuffer(), stateName: 'power', state:  'ON' },
-    { base_topic: 'fan/homenet/panel1', commandHex: 'f7 0b 01 2b 02 40 11 01 00 84 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 11 01 01 03 87'.toBuffer(), stateName: 'power', state:  'ON' },
-    { base_topic: 'fan/homenet/panel1', commandHex: 'f7 0b 01 2b 02 40 11 01 00 84 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 11 01 01 07 83'.toBuffer(), stateName: 'power', state:  'ON' },
+    { base_topic: 'fan/homenet/panel1', commandHex: 'f7 0b 01 2b 02 40 11 02 00 87 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 41 2b 04 40 11 00 02 07 81 ee'.toBuffer(), stateName: 'power', state: 'OFF' },
+    { base_topic: 'fan/homenet/panel1', commandHex: 'f7 0b 01 2b 02 42 11 01 00 86 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 41 2b 04 40 11 00 01 01 84 ee'.toBuffer(), stateName: 'power', state:  'ON' },
+    { base_topic: 'fan/homenet/panel1', commandHex: 'f7 0b 01 2b 02 42 11 01 00 86 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 41 2b 04 40 11 00 01 01 84 ee'.toBuffer(), stateName: 'speed', state:    'low' },
+    { base_topic: 'fan/homenet/panel1', commandHex: 'f7 0b 01 2b 02 42 11 03 00 84 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 41 2b 04 40 11 00 01 03 86 ee'.toBuffer(), stateName: 'speed', state: 'medium' },
+    { base_topic: 'fan/homenet/panel1', commandHex: 'f7 0b 01 2b 02 42 11 07 00 80 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 41 2b 04 40 11 00 01 07 82 ee'.toBuffer(), stateName: 'speed', state:   'high' },
+    
+    //환풍기2
+    //{ base_topic: 'fan/homenet/panel2', commandHex: 'f7 0b 01 2b 02 40 21 02 00 87 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 21 02 02 01 85'.toBuffer(), stateName: 'power', state: 'OFF' },
+    //{ base_topic: 'fan/homenet/panel2', commandHex: 'f7 0b 01 2b 02 40 21 02 00 87 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 21 02 02 03 87'.toBuffer(), stateName: 'power', state: 'OFF' },
+    //{ base_topic: 'fan/homenet/panel2', commandHex: 'f7 0b 01 2b 02 40 21 02 00 87 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 21 02 02 07 83'.toBuffer(), stateName: 'power', state: 'OFF' },
+    //{ base_topic: 'fan/homenet/panel2', commandHex: 'f7 0b 01 2b 02 40 21 01 00 84 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 21 01 01 01 85'.toBuffer(), stateName: 'power', state:  'ON' },
+    //{ base_topic: 'fan/homenet/panel2', commandHex: 'f7 0b 01 2b 02 40 21 01 00 84 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 21 01 01 03 87'.toBuffer(), stateName: 'power', state:  'ON' },
+    //{ base_topic: 'fan/homenet/panel2', commandHex: 'f7 0b 01 2b 02 40 21 01 00 84 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 21 01 01 07 83'.toBuffer(), stateName: 'power', state:  'ON' },
+    
+    //{ base_topic: 'fan/homenet/panel2', commandHex: 'f7 0b 01 2b 02 42 21 01 00 86 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 42 21 01 01 01 87'.toBuffer(), stateName: 'speed', state:    'low' },
+    //{ base_topic: 'fan/homenet/panel2', commandHex: 'f7 0b 01 2b 02 42 21 03 00 84 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 42 21 03 01 03 87'.toBuffer(), stateName: 'speed', state: 'medium' },
+    //{ base_topic: 'fan/homenet/panel2', commandHex: 'f7 0b 01 2b 02 42 21 07 00 80 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 42 21 07 01 07 87'.toBuffer(), stateName: 'speed', state:   'high' },
+    
+    //환풍기3
+    //{ base_topic: 'fan/homenet/panel3', commandHex: 'f7 0b 01 2b 02 40 31 02 00 87 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 31 02 02 01 85'.toBuffer(), stateName: 'power', state: 'OFF' },
+    //{ base_topic: 'fan/homenet/panel3', commandHex: 'f7 0b 01 2b 02 40 31 02 00 87 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 31 02 02 03 87'.toBuffer(), stateName: 'power', state: 'OFF' },
+    //{ base_topic: 'fan/homenet/panel3', commandHex: 'f7 0b 01 2b 02 40 31 02 00 87 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 31 02 02 07 83'.toBuffer(), stateName: 'power', state: 'OFF' },
+    //{ base_topic: 'fan/homenet/panel3', commandHex: 'f7 0b 01 2b 02 40 31 01 00 84 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 31 01 01 01 85'.toBuffer(), stateName: 'power', state:  'ON' },
+    //{ base_topic: 'fan/homenet/panel3', commandHex: 'f7 0b 01 2b 02 40 31 01 00 84 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 31 01 01 03 87'.toBuffer(), stateName: 'power', state:  'ON' },
+    //{ base_topic: 'fan/homenet/panel3', commandHex: 'f7 0b 01 2b 02 40 31 01 00 84 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 40 31 01 01 07 83'.toBuffer(), stateName: 'power', state:  'ON' },
 
-    { base_topic: 'fan/homenet/panel1', commandHex: 'f7 0b 01 2b 02 42 11 01 00 86 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 42 11 01 01 01 87'.toBuffer(), stateName: 'speed', state:    'low' },
-    { base_topic: 'fan/homenet/panel1', commandHex: 'f7 0b 01 2b 02 42 11 03 00 84 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 42 11 03 01 03 87'.toBuffer(), stateName: 'speed', state: 'medium' },
-    { base_topic: 'fan/homenet/panel1', commandHex: 'f7 0b 01 2b 02 42 11 07 00 80 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 42 11 07 01 07 87'.toBuffer(), stateName: 'speed', state:   'high' },
+    //{ base_topic: 'fan/homenet/panel3', commandHex: 'f7 0b 01 2b 02 42 31 01 00 86 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 42 31 01 01 01 87'.toBuffer(), stateName: 'speed', state:    'low' },
+    //{ base_topic: 'fan/homenet/panel3', commandHex: 'f7 0b 01 2b 02 42 31 03 00 84 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 42 31 03 01 03 87'.toBuffer(), stateName: 'speed', state: 'medium' },
+    //{ base_topic: 'fan/homenet/panel3', commandHex: 'f7 0b 01 2b 02 42 31 07 00 80 ee'.toBuffer(), ackHex: 'f7 0c 01 2b 04 42 31 07 01 07 87'.toBuffer(), stateName: 'speed', state:   'high' },
+
+    
 
     { base_topic: 'switch/homenet/breaker1', commandHex: 'f7 0b 01 1b 02 43 11 04 00 b2 ee'.toBuffer(), ackHex: 'f7 0b 01 1b 04 43 11 04 04 b0'.toBuffer(), stateName: 'gas', state: 'MANUAL' },
     { base_topic: 'switch/homenet/breaker1', commandHex: 'f7 0b 01 1b 02 43 11 03 00 b5 ee'.toBuffer(), ackHex: 'f7 0b 01 1b 04 43 11 03 03 b0'.toBuffer(), stateName: 'gas', state: 'ON' },
@@ -259,28 +316,196 @@ const CONST = {
     { base_topic: 'switch/homenet/breaker2-1', commandHex: 'f7 0c 01 2a 02 40 11 02 19 00 98 ee'.toBuffer(), ackHex: 'f7 0c 01 2a 04 40 11 02 19 02 9c'.toBuffer(), stateName: 'light', state: 'OFF' },
     { base_topic: 'switch/homenet/breaker2-1', commandHex: 'f7 0c 01 2a 02 40 11 01 19 00 9b ee'.toBuffer(), ackHex: 'f7 0c 01 2a 04 40 11 01 19 01 9c'.toBuffer(), stateName: 'light', state:  'ON' },
     { base_topic: 'switch/homenet/breaker2-2', commandHex: 'f7 0c 01 2a 02 43 11 04 1b 00 9f ee'.toBuffer(), ackHex: 'f7 0c 01 2a 04 43 11 04 1b 04 9d'.toBuffer(), stateName: 'gas', state: 'MANUAL' },
-    { base_topic: 'switch/homenet/breaker2-2', commandHex: 'f7 0c 01 2a 02 43 11 03 1b 00 98 ee'.toBuffer(), ackHex: 'f7 0c 01 2a 04 43 11 03 1b 03 9d'.toBuffer(), stateName: 'gas', state: 'ON' }
+    { base_topic: 'switch/homenet/breaker2-2', commandHex: 'f7 0c 01 2a 02 43 11 03 1b 00 98 ee'.toBuffer(), ackHex: 'f7 0c 01 2a 04 43 11 03 1b 03 9d'.toBuffer(), stateName: 'gas', state: 'ON' },
+
+
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 46 11 01 00 b1 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 46 11 01 01'.toBuffer(), stateName: 'away_mode', state: 'OFF' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 46 11 04 00 b4 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 46 11 04 04'.toBuffer(), stateName: 'away_mode', state: 'ON' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 46 12 01 00 b2 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 46 12 01 01'.toBuffer(), stateName: 'away_mode', state: 'OFF' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 46 12 04 00 b7 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 46 12 04 04'.toBuffer(), stateName: 'away_mode', state: 'ON' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 46 13 01 00 b3 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 46 13 01 01'.toBuffer(), stateName: 'away_mode', state: 'OFF' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 46 13 04 00 b6 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 46 13 04 04'.toBuffer(), stateName: 'away_mode', state: 'ON' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 46 14 01 00 b4 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 46 14 01 01'.toBuffer(), stateName: 'away_mode', state: 'OFF' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 46 14 04 00 b1 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 46 14 04 04'.toBuffer(), stateName: 'away_mode', state: 'ON' },
+
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 46 11 01 00 b1 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 46 11 01 01'.toBuffer(), stateName: 'mode', state: 'heat' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 46 11 04 00 b4 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 46 11 04 04'.toBuffer(), stateName: 'mode', state: 'off' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 07 00 b4 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 07'.toBuffer(), stateName: 'mode', state: 'heat_cool' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 46 12 01 00 b2 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 46 12 01 01'.toBuffer(), stateName: 'mode', state: 'heat' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 46 12 04 00 b7 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 46 12 04 04'.toBuffer(), stateName: 'mode', state: 'off' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 07 00 b7 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 07'.toBuffer(), stateName: 'mode', state: 'heat_cool' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 46 13 01 00 b3 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 46 13 01 01'.toBuffer(), stateName: 'mode', state: 'heat' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 46 13 04 00 b6 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 46 13 04 04'.toBuffer(), stateName: 'mode', state: 'off' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 07 00 b6 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 07'.toBuffer(), stateName: 'mode', state: 'heat_cool' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 46 14 01 00 b4 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 46 14 01 01'.toBuffer(), stateName: 'mode', state: 'heat' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 46 14 04 00 b1 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 46 14 04 04'.toBuffer(), stateName: 'mode', state: 'off' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 07 00 b1 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 07'.toBuffer(), stateName: 'mode', state: 'heat_cool' },
+
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 05 00 b6 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 05'.toBuffer(), stateName: 'temperature', state: '5.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 06 00 b5 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 06'.toBuffer(), stateName: 'temperature', state: '6.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 07 00 b4 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 07'.toBuffer(), stateName: 'temperature', state: '7.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 08 00 bb ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 08'.toBuffer(), stateName: 'temperature', state: '8.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 09 00 ba ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 09'.toBuffer(), stateName: 'temperature', state: '9.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 0a 00 b9 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 0a'.toBuffer(), stateName: 'temperature', state: '10.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 0b 00 b8 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 0b'.toBuffer(), stateName: 'temperature', state: '11.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 0c 00 bf ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 0c'.toBuffer(), stateName: 'temperature', state: '12.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 0d 00 be ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 0d'.toBuffer(), stateName: 'temperature', state: '13.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 0e 00 bd ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 0e'.toBuffer(), stateName: 'temperature', state: '14.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 0f 00 bc ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 0f'.toBuffer(), stateName: 'temperature', state: '15.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 10 00 a3 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 10'.toBuffer(), stateName: 'temperature', state: '16.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 11 00 a2 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 11'.toBuffer(), stateName: 'temperature', state: '17.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 12 00 a1 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 12'.toBuffer(), stateName: 'temperature', state: '18.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 13 00 a0 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 13'.toBuffer(), stateName: 'temperature', state: '19.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 14 00 a7 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 14'.toBuffer(), stateName: 'temperature', state: '20.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 15 00 a6 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 15'.toBuffer(), stateName: 'temperature', state: '21.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 16 00 a5 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 16'.toBuffer(), stateName: 'temperature', state: '22.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 17 00 a4 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 17'.toBuffer(), stateName: 'temperature', state: '23.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 18 00 ab ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 18'.toBuffer(), stateName: 'temperature', state: '24.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 19 00 aa ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 19'.toBuffer(), stateName: 'temperature', state: '25.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 1a 00 a9 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 1a'.toBuffer(), stateName: 'temperature', state: '26.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 1b 00 a8 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 1b'.toBuffer(), stateName: 'temperature', state: '27.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 1c 00 af ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 1c'.toBuffer(), stateName: 'temperature', state: '28.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 1d 00 ae ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 1d'.toBuffer(), stateName: 'temperature', state: '29.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 1e 00 ad ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 1e'.toBuffer(), stateName: 'temperature', state: '30.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 1f 00 ac ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 1f'.toBuffer(), stateName: 'temperature', state: '31.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 20 00 93 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 20'.toBuffer(), stateName: 'temperature', state: '32.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 21 00 92 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 21'.toBuffer(), stateName: 'temperature', state: '33.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 22 00 91 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 22'.toBuffer(), stateName: 'temperature', state: '34.0' },
+    { base_topic: 'climate/homenet/heater1-1', commandHex: 'f7 0b 01 18 02 45 11 23 00 90 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 11 23'.toBuffer(), stateName: 'temperature', state: '35.0' },
+
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 05 00 b5 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 05'.toBuffer(), stateName: 'temperature', state: '5.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 06 00 b6 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 06'.toBuffer(), stateName: 'temperature', state: '6.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 07 00 b7 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 07'.toBuffer(), stateName: 'temperature', state: '7.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 08 00 b8 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 08'.toBuffer(), stateName: 'temperature', state: '8.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 09 00 b9 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 09'.toBuffer(), stateName: 'temperature', state: '9.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 0a 00 ba ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 0a'.toBuffer(), stateName: 'temperature', state: '10.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 0b 00 bb ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 0b'.toBuffer(), stateName: 'temperature', state: '11.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 0c 00 bc ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 0c'.toBuffer(), stateName: 'temperature', state: '12.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 0d 00 bd ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 0d'.toBuffer(), stateName: 'temperature', state: '13.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 0e 00 be ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 0e'.toBuffer(), stateName: 'temperature', state: '14.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 0f 00 bf ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 0f'.toBuffer(), stateName: 'temperature', state: '15.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 10 00 a0 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 10'.toBuffer(), stateName: 'temperature', state: '16.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 11 00 a1 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 11'.toBuffer(), stateName: 'temperature', state: '17.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 12 00 a2 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 12'.toBuffer(), stateName: 'temperature', state: '18.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 13 00 a3 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 13'.toBuffer(), stateName: 'temperature', state: '19.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 14 00 a4 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 14'.toBuffer(), stateName: 'temperature', state: '20.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 15 00 a5 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 15'.toBuffer(), stateName: 'temperature', state: '21.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 16 00 a6 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 16'.toBuffer(), stateName: 'temperature', state: '22.0' },
+
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 17 01 a6 ee'.toBuffer(), ackHex: 'f7 0e 01 18 04 45 12 16 01'.toBuffer(), stateName: 'temperature', state: '22.5' },
+
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 17 00 a7 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 17'.toBuffer(), stateName: 'temperature', state: '23.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 18 00 a8 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 18'.toBuffer(), stateName: 'temperature', state: '24.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 19 00 a9 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 19'.toBuffer(), stateName: 'temperature', state: '25.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 1a 00 aa ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 1a'.toBuffer(), stateName: 'temperature', state: '26.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 1b 00 ab ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 1b'.toBuffer(), stateName: 'temperature', state: '27.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 1c 00 ac ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 1c'.toBuffer(), stateName: 'temperature', state: '28.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 1d 00 ad ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 1d'.toBuffer(), stateName: 'temperature', state: '29.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 1e 00 ae ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 1e'.toBuffer(), stateName: 'temperature', state: '30.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 1f 00 af ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 1f'.toBuffer(), stateName: 'temperature', state: '31.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 20 00 90 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 20'.toBuffer(), stateName: 'temperature', state: '32.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 21 00 91 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 21'.toBuffer(), stateName: 'temperature', state: '33.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 22 00 92 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 22'.toBuffer(), stateName: 'temperature', state: '34.0' },
+    { base_topic: 'climate/homenet/heater1-2', commandHex: 'f7 0b 01 18 02 45 12 23 00 93 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 12 23'.toBuffer(), stateName: 'temperature', state: '35.0' },
+
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 05 00 b4 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 05'.toBuffer(), stateName: 'temperature', state: '5.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 06 00 b7 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 06'.toBuffer(), stateName: 'temperature', state: '6.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 07 00 b6 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 07'.toBuffer(), stateName: 'temperature', state: '7.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 08 00 b9 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 08'.toBuffer(), stateName: 'temperature', state: '8.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 09 00 b8 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 09'.toBuffer(), stateName: 'temperature', state: '9.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 0a 00 bb ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 0a'.toBuffer(), stateName: 'temperature', state: '10.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 0b 00 ba ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 0b'.toBuffer(), stateName: 'temperature', state: '11.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 0c 00 bd ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 0c'.toBuffer(), stateName: 'temperature', state: '12.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 0d 00 bc ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 0d'.toBuffer(), stateName: 'temperature', state: '13.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 0e 00 bf ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 0e'.toBuffer(), stateName: 'temperature', state: '14.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 0f 00 be ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 0f'.toBuffer(), stateName: 'temperature', state: '15.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 10 00 a1 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 10'.toBuffer(), stateName: 'temperature', state: '16.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 11 00 a0 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 11'.toBuffer(), stateName: 'temperature', state: '17.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 12 00 a3 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 12'.toBuffer(), stateName: 'temperature', state: '18.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 13 00 a2 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 13'.toBuffer(), stateName: 'temperature', state: '19.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 14 00 a5 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 14'.toBuffer(), stateName: 'temperature', state: '20.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 15 00 a4 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 15'.toBuffer(), stateName: 'temperature', state: '21.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 16 00 a7 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 16'.toBuffer(), stateName: 'temperature', state: '22.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 17 00 a6 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 17'.toBuffer(), stateName: 'temperature', state: '23.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 18 00 a9 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 18'.toBuffer(), stateName: 'temperature', state: '24.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 19 00 a8 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 19'.toBuffer(), stateName: 'temperature', state: '25.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 1a 00 ab ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 1a'.toBuffer(), stateName: 'temperature', state: '26.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 1b 00 aa ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 1b'.toBuffer(), stateName: 'temperature', state: '27.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 1c 00 ad ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 1c'.toBuffer(), stateName: 'temperature', state: '28.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 1d 00 ac ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 1d'.toBuffer(), stateName: 'temperature', state: '29.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 1e 00 af ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 1e'.toBuffer(), stateName: 'temperature', state: '30.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 1f 00 ae ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 1f'.toBuffer(), stateName: 'temperature', state: '31.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 20 00 91 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 20'.toBuffer(), stateName: 'temperature', state: '32.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 21 00 90 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 21'.toBuffer(), stateName: 'temperature', state: '33.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 22 00 93 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 22'.toBuffer(), stateName: 'temperature', state: '34.0' },
+    { base_topic: 'climate/homenet/heater1-3', commandHex: 'f7 0b 01 18 02 45 13 23 00 92 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 13 23'.toBuffer(), stateName: 'temperature', state: '35.0' },
+
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 05 00 b3 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 05'.toBuffer(), stateName: 'temperature', state: '5.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 06 00 b0 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 06'.toBuffer(), stateName: 'temperature', state: '6.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 07 00 b1 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 07'.toBuffer(), stateName: 'temperature', state: '7.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 08 00 be ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 08'.toBuffer(), stateName: 'temperature', state: '8.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 09 00 bf ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 09'.toBuffer(), stateName: 'temperature', state: '9.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 0a 00 bc ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 0a'.toBuffer(), stateName: 'temperature', state: '10.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 0b 00 bd ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 0b'.toBuffer(), stateName: 'temperature', state: '11.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 0c 00 ba ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 0c'.toBuffer(), stateName: 'temperature', state: '12.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 0d 00 bb ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 0d'.toBuffer(), stateName: 'temperature', state: '13.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 0e 00 b8 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 0e'.toBuffer(), stateName: 'temperature', state: '14.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 0f 00 b9 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 0f'.toBuffer(), stateName: 'temperature', state: '15.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 10 00 a6 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 10'.toBuffer(), stateName: 'temperature', state: '16.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 11 00 a7 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 11'.toBuffer(), stateName: 'temperature', state: '17.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 12 00 a4 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 12'.toBuffer(), stateName: 'temperature', state: '18.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 13 00 a5 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 13'.toBuffer(), stateName: 'temperature', state: '19.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 14 00 a2 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 14'.toBuffer(), stateName: 'temperature', state: '20.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 15 00 a3 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 15'.toBuffer(), stateName: 'temperature', state: '21.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 16 00 a0 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 16'.toBuffer(), stateName: 'temperature', state: '22.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 17 00 a1 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 17'.toBuffer(), stateName: 'temperature', state: '23.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 18 00 ae ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 18'.toBuffer(), stateName: 'temperature', state: '24.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 19 00 af ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 19'.toBuffer(), stateName: 'temperature', state: '25.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 1a 00 ac ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 1a'.toBuffer(), stateName: 'temperature', state: '26.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 1b 00 ad ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 1b'.toBuffer(), stateName: 'temperature', state: '27.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 1c 00 aa ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 1c'.toBuffer(), stateName: 'temperature', state: '28.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 1d 00 ab ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 1d'.toBuffer(), stateName: 'temperature', state: '29.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 1e 00 a8 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 1e'.toBuffer(), stateName: 'temperature', state: '30.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 1f 00 a9 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 1f'.toBuffer(), stateName: 'temperature', state: '31.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 20 00 96 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 20'.toBuffer(), stateName: 'temperature', state: '32.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 21 00 97 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 21'.toBuffer(), stateName: 'temperature', state: '33.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 22 00 94 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 22'.toBuffer(), stateName: 'temperature', state: '34.0' },
+    { base_topic: 'climate/homenet/heater1-4', commandHex: 'f7 0b 01 18 02 45 14 23 00 95 ee'.toBuffer(), ackHex: 'f7 0d 01 18 04 45 14 23'.toBuffer(), stateName: 'temperature', state: '35.0' }     
+
+
+    
   ],
 
   DEVICE_SCHEDULED_REQUEST: [
-    { category: 'light/homenet/panel1', requestHex: 'f7 0b 01 19 01 40 10 00 00 b5'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 },
-    { category: 'light/homenet/panel2', requestHex: 'f7 0b 01 19 01 40 20 00 00 85'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 },
-    { category: 'light/homenet/panel3', requestHex: 'f7 0b 01 19 01 40 30 00 00 95'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 },
-    { category: 'light/homenet/panel4', requestHex: 'f7 0b 01 19 01 40 40 00 00 e5'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 },
-    { category: 'fan/homenet/panel1',   requestHex: 'f7 0b 01 2b 01 40 10 00 00 87'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 },
 
-    { category: 'switch/homenet/breaker1',   requestHex: 'f7 0b 01 1b 01 43 10 00 00 b4'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 },
-    { category: 'switch/homenet/breaker2-1', requestHex: 'f7 0c 01 2a 01 40 11 00 19 00 99'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 },
-    { category: 'switch/homenet/breaker2-2', requestHex: 'f7 0c 01 2a 01 43 11 00 1b 00 98'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 },
+    //{ category: 'light/homenet/panel1-1', requestHex: 'f7 0b 01 19 01 40 11 00 00 b4 ee'.toBuffer(), lastActivity: new Date().getTime() + 1000, lastDelegateActivity: new Date().getTime() + 1000 },
+    //{ category: 'light/homenet/panel1-2', requestHex: 'f7 0b 01 19 01 40 12 00 00 b7 ee'.toBuffer(), lastActivity: new Date().getTime() + 1000, lastDelegateActivity: new Date().getTime() + 1000 },
+    //{ category: 'light/homenet/panel1-3', requestHex: 'f7 0b 01 19 01 40 13 00 00 b6 ee'.toBuffer(), lastActivity: new Date().getTime() + 1000, lastDelegateActivity: new Date().getTime() + 1000 },
+    //{ category: 'light/homenet/panel5-1', requestHex: 'f7 0b 01 19 01 40 51 00 00 f4 ee'.toBuffer(), lastActivity: new Date().getTime() + 1000, lastDelegateActivity: new Date().getTime() + 1000 },
+    //{ category: 'light/homenet/panel5-2', requestHex: 'f7 0b 01 19 01 40 52 00 00 f7 ee'.toBuffer(), lastActivity: new Date().getTime() + 1000, lastDelegateActivity: new Date().getTime() + 1000 },
+    //{ category: 'light/homenet/panel5-3', requestHex: 'f7 0b 01 19 01 40 53 00 00 f6 ee'.toBuffer(), lastActivity: new Date().getTime() + 1000, lastDelegateActivity: new Date().getTime() + 1000 },
 
-    { category: 'climate/homenet/heater1', requestHex: 'f7 0b 01 18 01 46 10 00 00 b2'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 }
+    //{ category: 'fan/homenet/panel1',   requestHex: 'f7 0b 01 2b 01 40 10 00 00 87'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 },
+    //{ category: 'fan/homenet/panel2',   requestHex: 'f7 0b 01 2b 01 40 20 00 00 87'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 },
+    //{ category: 'fan/homenet/panel3',   requestHex: 'f7 0b 01 2b 01 40 30 00 00 87'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 },
+
+    //{ category: 'switch/homenet/breaker1',   requestHex: 'f7 0b 01 1b 01 43 10 00 00 b4'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 },
+    //{ category: 'switch/homenet/breaker2-1', requestHex: 'f7 0c 01 2a 01 40 11 00 19 00 99'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 },
+    //{ category: 'switch/homenet/breaker2-2', requestHex: 'f7 0c 01 2a 01 43 11 00 1b 00 98'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 },
+
+    //{ category: 'climate/homenet/heater1-1', requestHex: 'f7 0b 01 18 01 46 11 00 00 b2'.toBuffer(), lastActivity: new Date().getTime()+1000, lastDelegateActivity: new Date().getTime()+1000 },
+    //{ category: 'climate/homenet/heater1-2', requestHex: 'f7 0b 01 18 01 46 12 00 00 b3'.toBuffer(), lastActivity: new Date().getTime()+1000, lastDelegateActivity: new Date().getTime()+1000 },
+    //{ category: 'climate/homenet/heater1-3', requestHex: 'f7 0b 01 18 01 46 13 00 00 b4'.toBuffer(), lastActivity: new Date().getTime()+1000, lastDelegateActivity: new Date().getTime()+1000 },
+    //{ category: 'climate/homenet/heater1-4', requestHex: 'f7 0b 01 18 01 46 14 00 00 b5'.toBuffer(), lastActivity: new Date().getTime()+1000, lastDelegateActivity: new Date().getTime()+1000 }
+
+
   ],
   DEVICE_SCHEDULED_REQUEST_NORMAL:   { base_topic: 'binary_sensor/homenet/wallpad', stateName: 'connectivity', state:  'ON' },
   DEVICE_SCHEDULED_REQUEST_ABNORMAL: { base_topic: 'binary_sensor/homenet/wallpad', stateName: 'connectivity', state: 'OFF' },
 
   DEVICE_UNSCHEDULED_REQUEST: [
-    { category: 'switch/homenet/breaker2-2-off', requestHex: 'f7 0e 01 2a 01 40 10 00 19 01 1b 04 84'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 },
-    { category: 'switch/homenet/breaker2-2-on',  requestHex: 'f7 0e 01 2a 01 40 10 00 19 01 1b 03 83'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 }
+    //{ category: 'switch/homenet/breaker2-2-off', requestHex: 'f7 0e 01 2a 01 40 10 00 19 01 1b 04 84'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 },
+    //{ category: 'switch/homenet/breaker2-2-on',  requestHex: 'f7 0e 01 2a 01 40 10 00 19 01 1b 03 83'.toBuffer(), lastActivity: new Date().getTime()+10000, lastDelegateActivity: new Date().getTime()+10000 }
   ],
 
   // 상태 Topic (/homeassistant/${component}/${node_id}/${object_id}/${property}/state/ = ${value})
@@ -392,9 +617,10 @@ parser.on('data', buffer => {
   } else if (buffer[4] ==  0x04) {
     var stateFound = CONST.DEVICE_STATE.filter(obj => obj.checkState(obj, buffer) );
     if (stateFound.length !== 0) {
-      stateFound.forEach(function(obj) {
-        if(obj.stateName == 'direction') {
-          obj.state = buffer[8] == 0xa6 ? 'moving up' : 'moving down'
+      stateFound.forEach(function (obj) {
+        if (obj.base_topic === 'sensor/homenet/elevator-state') {
+          obj.stateCode = buffer[obj.stateIndex];
+          obj.state = obj.stateCode & 0xff;
         }
         //log('[Serial] State Found:', obj.base_topic, obj.stateName, obj.state);
         updateStatus(obj);
